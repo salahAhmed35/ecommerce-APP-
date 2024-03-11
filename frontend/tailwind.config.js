@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       textColor: {
-        
+        blue: "#3b82f6"
       }
     },
   },
