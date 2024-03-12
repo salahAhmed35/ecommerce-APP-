@@ -1,13 +1,15 @@
 import "./App.css";
-import { GrAndroid } from "react-icons/gr";
 import TopBar from "./components/topBar/topBar";
 import Header from "./components/header/header";
+import NavBar from "./components/navbar/navbar";
+import React from "react";
 function App() {
   return (
-    <>
-     <TopBar />
-     <Header/>
-    </>
+      <div className="app">
+        <TopBar />
+        <Header />
+        <NavBar />
+      </div>
   );
 }
 

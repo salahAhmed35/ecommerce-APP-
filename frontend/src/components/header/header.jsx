@@ -4,7 +4,7 @@ import { IoBagOutline } from "react-icons/io5";
 const Header = () => {
   return (
     <React.Fragment>
-      <div className="Header py-4 px-2">
+      <div className="Header py-8 px-2 bg-[#f8fafc]">
         <div className="container flex justify-between m-auto">
           <div>
             <div className="logo ">
