@@ -3,7 +3,7 @@ import { LuUser2 } from "react-icons/lu";
 const TopBar = () => {
   return (
     <React.Fragment>
-      <div className="top-bar flex  justify-end px-2 py-4 bg-gray-100 border-b border-gray-300 border-solid ">
+      <div className="top-bar justify-end px-2 py-4 bg-gray-100 border-b border-gray-300 border-solid flex">
         <div className="container m-auto flex  justify-end">
           <div className="flex items-center mr-3">
             <div className="language mr-4">
@@ -12,6 +12,7 @@ const TopBar = () => {
             <div className="currency mr-4 font-semibold text-gray-600">
               $ US Dollar
             </div>
+            
           </div>
           <div className="flex items-center ml-4">
             <div className="register mr-3">

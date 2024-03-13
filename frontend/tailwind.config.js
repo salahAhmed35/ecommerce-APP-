@@ -3,21 +3,32 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      width : {
-        "240" : "240px"
+      width: {
+        "240": "240px"
       },
       textColor: {
-        blue: "#3b82f6",
-        gray: "#9ca3af"
+        'light-blue': '#3b82f6',
+        'light-gray': '#9ca3af',
+        'dark-blue': '#93c5fd',
+        'dark-gray': '#6b7280',
       },
-      colors: {
-        blue: "#3b82f6"
+      backgroundColor: {
+        'light-bg': '#ffffff',
+        'dark-bg': '#1f2937',
+      },
+      borderColor: {
+        'light-border': '#e5e7eb',
+        'dark-border': '#374151',
       },
       boxShadow: {
-        shadow : "-3px 3px 13px -3px #cbd5e1"
-      }
-    }
+        'light-shadow': '-3px 3px 13px -3px #cbd5e1',
+        'dark-shadow': '-3px 3px 13px -3px rgba(66, 81, 98, 0.5)',
+      },
+    },
   },
   plugins: [],
-}
+};
+
+
+
 
