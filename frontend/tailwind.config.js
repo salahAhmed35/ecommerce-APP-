@@ -6,6 +6,11 @@ module.exports = {
       width: {
         "240": "240px"
       },
+      colors : {
+        "blue" : "#3b82f6",
+        "gray" : "#9ca3af",
+        "white" : "#FFFFFF"
+      },
       textColor: {
         'light-blue': '#3b82f6',
         'light-gray': '#9ca3af',

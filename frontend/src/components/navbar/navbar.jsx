@@ -2,6 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineBars3 } from "react-icons/hi2";
 const NavBar = () => {
+  const navLinks = [
+    {
+      linkName : "Home",
+      link : "/"
+    },
+    {
+      linkName : "Blog",
+      link : "/blog"
+    },
+    {
+      linkName : "About",
+      link : "/about"
+    },
+    {
+      linkName : "Contact",
+      link : "/contact"
+    }
+  ]
   return (
     <React.Fragment>
       <div className="nav-bar shadow">
@@ -14,18 +32,11 @@ const NavBar = () => {
           </div>
           <div className="pages-links">
             <ul className="flex ">
-              <li className="mx-4 py-4 text-2xl font-md text-gray">
-                <a to="#">Home</a>
-              </li>
-              <li className="mx-4 py-4 text-2xl font-md text-gray">
-                <a to="#">Blog</a>
-              </li>
-              <li className="mx-4 py-4 text-2xl font-md text-gray">
-                <a to="#">About</a>
-              </li>
-              <li className="     py-4 text-2xl font-md text-gray">
-                <a to="#">Contact</a>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.linkName} className="py-4 text-2xl font-md text-light-gray ml-4">
+                  <Link to={link.link}>{link.linkName}</Link>          
+                </li>
+              ))}
             </ul>
           </div>
         </div>
