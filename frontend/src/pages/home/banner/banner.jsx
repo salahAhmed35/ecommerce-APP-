@@ -3,7 +3,7 @@ import Button from "../../../components/Button/Button";
 import bannerImage from "../../../assets/pannerImage.svg"
 const Banner = () => {
   return (
-    <div className="banner bg-[#f0f9ff] flex items-center">
+    <div className="banner bg-[#f0f9ff] flex items-center h-50vh">
       <div className="container mx-auto flex justify-between items-center">
         <div className="banner-text w-1/2">    
           <h1 className="py-2 my-2 text-5xl font-semibold text-blue">online shoping</h1>

@@ -6,12 +6,16 @@ module.exports = {
       width: {
         "240": "240px",
         "180" : "180px",
+        "50vh" : "50vh",
         "300" : "300px"
       },
       colors : {
         "blue" : "#3b82f6",
         "gray" : "#9ca3af",
         "white" : "#FFFFFF"
+      },
+      height: {
+        "50vh" : "50vh"
       },
       textColor: {
         'light-blue': '#3b82f6',
