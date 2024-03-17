@@ -6,6 +6,7 @@ import Header from "./components/header/header";
 import NavBar from "./components/navbar/navbar";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
+import RegisterForm from "./pages/register/register";
 function App() {
   const Layouts = () => {
     return (
@@ -26,6 +27,8 @@ function App() {
           </Route>
           <Route>
             <Route path="login" element={<Login />} />
+            <Route path="register" element={<RegisterForm />} />
+
           </Route>
         </Routes>
       </div>
