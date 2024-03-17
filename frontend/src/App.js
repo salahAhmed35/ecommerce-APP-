@@ -1,19 +1,34 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import TopBar from "./components/topBar/topBar";
 import Header from "./components/header/header";
 import NavBar from "./components/navbar/navbar";
 import Home from "./pages/home/home";
+import Login from "./pages/login/login";
 function App() {
+  const Layouts = () => {
+    return (
+      <div>
+        <TopBar />
+        <Header />
+        <NavBar />
+        <Outlet />
+      </div>
+    );
+  };
   return (
     <BrowserRouter>
-      <TopBar />
-      <Header />
-      <NavBar />
-      <Routes>
-        <Route path="/" Component={Home} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/" exact element={<Layouts />}>
+            <Route path="/" element={<Home />} />
+          </Route>
+          <Route>
+            <Route path="login" element={<Login />} />
+          </Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

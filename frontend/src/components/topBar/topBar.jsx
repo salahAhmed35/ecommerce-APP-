@@ -1,5 +1,6 @@
 import React from "react";
 import { LuUser2 } from "react-icons/lu";
+import { Link } from "react-router-dom";
 const TopBar = () => {
   return (
     <React.Fragment>
@@ -26,9 +27,9 @@ const TopBar = () => {
             </div>
             <span className="text-gray-600 font-semibold">|</span>
             <div className="login ml-3">
-              <a href="#" className="font-semibold text-gray-600">
+              <Link to = "/login" className="font-semibold text-gray-600">
                 login
-              </a>
+              </Link>
             </div>
           </div>
         </div>
