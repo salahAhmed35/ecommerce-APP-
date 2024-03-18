@@ -1,13 +1,14 @@
 const express = require('express'); 
+const bodyParser = require("body-parser")
+const cors = require('cors')
+const userRouter = require('./routes/userRoute.js')
 const app = express(); 
 const PORT = 3000; 
-  
-const homeRoute = require('./routes/home.js')
-const loginRoute = require('./routes/login.js')
 
+app.use(bodyParser.json())
+app.use(cors())
 
-app.use('/' , homeRoute)
-app.use('/' , loginRoute)
+app.use("/api/users" , userRouter)
 app.listen(PORT, (error) =>{ 
     if(!error) 
         console.log("Server is Successfully Running, and App is listening on port "+ PORT) 
