@@ -17,13 +17,13 @@ const TopBar = () => {
           </div>
           <div className="flex items-center ml-4">
             <div className="register mr-3">
-              <a
-                href="#"
+              <Link
+                to={'/register'}
                 className="font-semibold text-gray-600 flex items-center"
               >
                 <LuUser2 className="mr-1" />
                 <p>register</p>
-              </a>
+              </Link>
             </div>
             <span className="text-gray-600 font-semibold">|</span>
             <div className="login ml-3">

@@ -1,33 +1,92 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 const Login = () => {
-    return (
-        <>
-          <div className="login bg-white-blue h-100vh flex items-center justify-center">
-            <div className="login-form bg-white w-400 p-6 rounded h-">
-                <h2 className='text-blue font-semibold text-3xl my-3 text-center'>Login</h2>
-                <form action="Submit">
-                    <div className="email my-3  ">
-                        <label htmlFor="email" className='mx-2 text-md font-semibold text-dark-gray'>Email</label>
-                        <input type="email" id='email' name='email'placeholder='Enter Email' className='px-2 py-3 border border-gray  w-95% mx-2 my-2 rounded'/>
-                    </div>
-                    <div className="password">
-                        <label htmlFor="password" className='mx-2 text-md font-semibold text-dark-gray'>Password</label>
-                        <input type="password" id='password' placeholder='Enter Password' name='email'className='px-2 py-3 border border-gray  w-95% mx-2 my-2 rounded'/>
-                    </div>
-                    <div className="show-password my-1 mx-2">
-                        <input type="checkbox" />
-                        <span className='text-gray ml-1'>show password</span>
-                    </div>
-                    <button className='border-none  bg-blue text-white font-semibold text-xl rounded w-full py-2 my-3 mx-auto'>Login</button>
-                    <div className='my-3'>
-                        <span>Don't have an account ? <Link to={'/register'} className='text-blue'>Sign up</Link></span>
-                    </div>
-                </form>
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userData = {
+      email,
+      password,
+    };
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/login",
+        userData
+      );
+      console.log(response.data.message);
+    } catch (error) {
+      console.log("login field", error);
+    }
+  };
+  return (
+    <>
+      <div className="login bg-white-blue h-100vh flex items-center justify-center">
+        <div className="login-form bg-white w-400 p-6 rounded h-">
+          <h2 className="text-blue font-semibold text-3xl my-3 text-center">
+            Login
+          </h2>
+          <form action="Submit" onSubmit={handleSubmit}>
+            <div className="email my-3  ">
+              <label
+                htmlFor="email"
+                className="mx-2 text-md font-semibold text-dark-gray"
+              >
+                Email
+              </label>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter Email"
+                className="px-2 py-3 border border-gray  w-95% mx-2 my-2 rounded"
+              />
             </div>
-          </div>
-        </>
-    )
-}
-export default Login
+            <div className="password">
+              <label
+                htmlFor="password"
+                className="mx-2 text-md font-semibold text-dark-gray"
+              >
+                Password
+              </label>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+                name="password"
+                className="px-2 py-3 border border-gray  w-95% mx-2 my-2 rounded"
+              />
+            </div>
+            <div className="show-password my-1 mx-2">
+              <input type="checkbox" />
+              <span className="text-gray ml-1">show password</span>
+            </div>
+            <button
+              type="submit"
+              className="border-none  bg-blue text-white font-semibold text-xl rounded w-full py-2 my-3 mx-auto"
+            >
+              Login
+            </button>
+            <div className="my-3">
+              <span>
+                Don't have an account ?{" "}
+                <Link to={"/register"} className="text-blue">
+                  Sign up
+                </Link>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
+export default Login;
