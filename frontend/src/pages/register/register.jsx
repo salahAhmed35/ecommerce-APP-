@@ -9,6 +9,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [notMatched , setNotMatched] = useState("")
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading , setLoading] = useState(false)
@@ -22,12 +23,16 @@ const Register = () => {
       password,
     };
     try{
-      const response = await axios.post(
-        'http://localhost:3001/register',
-         userData);
-         if(response.status === 201){
-           setSuccess(response.data.message)
-         }
+      if(password === confirmPassword){
+        const response = await axios.post(
+          'http://localhost:3001/register',
+           userData);
+           if(response.status === 201){
+             setSuccess(response.data.message)
+        }
+      }else{
+          setNotMatched("Passwords Not Matched")
+      }
     }catch(error) {
       setError(error.response.data.message)
     }finally{
@@ -118,6 +123,7 @@ const Register = () => {
                 required
               />
             </div>
+            {notMatched && <span className="mx-2 mt-1 mb-5 font-semibold text-red-600">{notMatched}</span>}
             <div className="confirm-password">
               <label
                 htmlFor="confirmedPassword"
