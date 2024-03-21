@@ -2,13 +2,13 @@
     width: 25px;
     height: 25px;
     border: 3px solid ;
-    border-left-color: gray;
-    border-right-color: gray;
-    border-top-color: gray;
+    border-left-color: #4b5563;
+    border-right-color: #4b5563;
+    border-top-color: #4b5563;
     border-bottom-color: transparent;
     border-radius: 50%;
     position: absolute;
-    left: 40%;
+    left: 30%;
     animation: spinner 1s infinite;
 }
 

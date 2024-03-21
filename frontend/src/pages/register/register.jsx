@@ -14,7 +14,7 @@ const Register = () => {
   const [loading , setLoading] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading()
+    setLoading(true)
     const userData = {
       firstname,
       lastname,
@@ -30,6 +30,8 @@ const Register = () => {
          }
     }catch(error) {
       setError(error.response.data.message)
+    }finally{
+      setLoading(false)
     }
   };
   return (
@@ -135,11 +137,10 @@ const Register = () => {
               />
             </div>
             <button
-               disabled = {true}
               type="submit"
-              className="flex items-center justify-center border-none  bg-blue text-white font-semibold text-xl rounded w-95% px-3 py-2 my-3 mx-2"
+              className="flex relative items-center justify-center border-none  bg-blue text-white font-semibold text-xl rounded w-95% px-3 py-2 my-3 mx-2"
             >
-              <Loadingspinner />
+              {loading && <Loadingspinner />}
               Sign up
             </button>
           </form>
