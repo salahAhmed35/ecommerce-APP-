@@ -1,0 +1,21 @@
+.spinner{
+    width: 25px;
+    height: 25px;
+    border: 3px solid ;
+    border-left-color: gray;
+    border-right-color: gray;
+    border-top-color: gray;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    left: 40%;
+    animation: spinner 1s infinite;
+}
+
+@keyframes spinner {
+    0%{
+        transform: rotate(0deg);
+    }100%{
+        transform: rotate(360deg);
+    }
+}

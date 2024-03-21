@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Error from "../../components/error/error";
+import SuccessMessage from "../../components/successMessage/successMessage";
+import Loadingspinner from "../../components/loadingspinner/loadingspinner"
 import axios from "axios";
 const Register = () => {
   const [firstname, setFirstname] = useState("");
@@ -8,8 +11,10 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading , setLoading] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading()
     const userData = {
       firstname,
       lastname,
@@ -20,24 +25,28 @@ const Register = () => {
       const response = await axios.post(
         'http://localhost:3001/register',
          userData);
-         console.log(response.data.message);
+         if(response.status === 201){
+           setSuccess(response.data.message)
+         }
     }catch(error) {
-      console.log('Registration failed:', error)
+      setError(error.response.data.message)
     }
   };
   return (
     <>
-      <div className="login bg-white-blue h-100vh flex items-center justify-center">
-        <div className="login-form bg-white w-400 p-6 rounded h-">
-          <h2 className="text-blue font-semibold text-3xl mt-3 mb-7 text-center">
+      <div className="flex items-center justify-center login bg-white-blue h-100vh">
+        <div className="p-6 bg-white rounded login-form w-400 h-">
+          <h2 className="mt-3 text-3xl font-semibold text-center text-blue mb-7">
             create a new account
           </h2>
+          {success ? <SuccessMessage message={success} /> : ""}
+          {error ? <Error errorMessage={error} /> : ""}
           <form action="Submit" onSubmit={handleSubmit}>
-            <div className="name flex mt-3 mx-2">
+            <div className="flex mx-2 mt-3 name">
               <div className="first-name">
                 <label
                   htmlFor="firstname"
-                  className="mr-2 text-md  font-semibold text-dark-gray"
+                  className="mr-2 font-semibold text-md text-dark-gray"
                 >
                   First Name
                 </label>
@@ -55,7 +64,7 @@ const Register = () => {
               <div className="last-name">
                 <label
                   htmlFor="firstname"
-                  className="mx-2 text-md  font-semibold text-dark-gray"
+                  className="mx-2 font-semibold text-md text-dark-gray"
                 >
                   Last Name
                 </label>
@@ -71,10 +80,10 @@ const Register = () => {
                 />
               </div>
             </div>
-            <div className="email my-3  ">
+            <div className="my-3 email ">
               <label
                 htmlFor="email"
-                className="mx-2 text-md  font-semibold text-dark-gray"
+                className="mx-2 font-semibold text-md text-dark-gray"
               >
                 Email
               </label>
@@ -92,7 +101,7 @@ const Register = () => {
             <div className="password">
               <label
                 htmlFor="password"
-                className="mx-2 text-md  font-semibold text-dark-gray"
+                className="mx-2 font-semibold text-md text-dark-gray"
               >
                 Password
               </label>
@@ -110,7 +119,7 @@ const Register = () => {
             <div className="confirm-password">
               <label
                 htmlFor="confirmedPassword"
-                className="mx-2 text-md font-semibold text-dark-gray"
+                className="mx-2 font-semibold text-md text-dark-gray"
               >
                 Confirm Password
               </label>
@@ -126,9 +135,11 @@ const Register = () => {
               />
             </div>
             <button
+               disabled = {true}
               type="submit"
-              className="border-none  bg-blue text-white font-semibold text-xl rounded w-95% px-3 py-2 my-3 mx-2"
+              className="flex items-center justify-center border-none  bg-blue text-white font-semibold text-xl rounded w-95% px-3 py-2 my-3 mx-2"
             >
+              <Loadingspinner />
               Sign up
             </button>
           </form>
