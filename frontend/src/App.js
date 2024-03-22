@@ -2,8 +2,7 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import TopBar from "./components/topBar/topBar";
-import Header from "./components/header/header";
-import NavBar from "./components/navbar/navbar";
+import Navbar from "./components/navbar/navbar";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import RegisterForm from "./pages/register/register";
@@ -12,8 +11,7 @@ function App() {
     return (
       <div>
         <TopBar />
-        <Header />
-        <NavBar />
+        <Navbar />
         <Outlet />
       </div>
     );
