@@ -16,6 +16,17 @@ const productSchema = new mongoose.Schema({
     rating: {type : Number ,require: true},
     price: {type : Number ,require: true}, 
 })
-const User = mongoose.model('User' , userSchema)
+const orderSchema = new mongoose.Schema({
+    user_id : { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    products: [{
+        product_id : { type: mongoose.Schema.Types.ObjectId, ref: 'product'},
+        quantity : {type : Number ,require: true} ,
+        price : {type : Number ,require: true} ,
+    }],
+    total_price : {type : Number ,require: true} ,
+    order_date : {type : Date ,require: true} ,
+})
 
+const User = mongoose.model('User' , userSchema)
+const Product = mongoose.model('Product', productSchema)
 module.exports = User
