@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const userSchema = new mongoose.Schema({
     firstname: {type : String ,require: true},
     lastname: {type : String ,require: true},
@@ -26,7 +25,14 @@ const orderSchema = new mongoose.Schema({
     total_price : {type : Number ,require: true} ,
     order_date : {type : Date ,require: true} ,
 })
-
+const reviewSchema = new mongoose.Schema({
+    user_id : {type: mongoose.Schema.Types.ObjectId, ref : 'User'},
+    product_id : {type: mongoose.Schema.Types.ObjectId, ref : 'Product'},
+    rating : {type : Number , require: true},
+    review : {type : String}
+})
 const User = mongoose.model('User' , userSchema)
 const Product = mongoose.model('Product', productSchema)
+const Order = mongoose.model('Order' , orderSchema)
+const Review = mongoose.model('Reveiw' , reviewSchema)
 module.exports = User
