@@ -7,11 +7,11 @@ const app = express();
 const userRoute = require('./routes/userRoute');
 app.use(cors());
 app.use(bodyParser.json());
-require('./models/User');
+require('./models/dbModels');
 app.use(userRoute);
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
-const port = 3000;
+const port = 3001;
 app.listen(port, () => console.log(`Server listening on port ${port}`))

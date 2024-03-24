@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const User = require("../models/User")
+const User = require("../models/dbModels")
 router.post('/register', async (req, res) => {
     const { firstname,lastname ,  email, password } = req.body; 
     try {
@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
         });
         await newUser.save();
 
-        res.status(201).json({ message: 'User created successfully' });
+        res.status(201).json({ message: 'Successful Register' });
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server Error' });
@@ -31,7 +31,7 @@ router.post('/login' , async (req , res) => {
         if(!user){
             return res.status(400).json({message : 'user not found'})
         }
-        const passwordMatched = bcrypt.compare(password , user.password)
+        const passwordMatched = await bcrypt.compare(password , user.password)
         if(!passwordMatched){
             return res.status(400).json({message : 'password not matched'})
         }
