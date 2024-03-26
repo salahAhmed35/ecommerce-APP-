@@ -30,7 +30,7 @@ const Login = () => {
         setSuccess(response.data.message)
       }
     } catch (error) {
-      setError(error.response.data.message)
+      setError("uncorrect password or email")
     }finally{
       setLoading(false)
     }
