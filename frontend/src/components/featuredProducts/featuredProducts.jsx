@@ -5,7 +5,7 @@ const FeaturedProducts = () => {
     return(
         <>
           <div className="featured-products">
-            <div className="container">
+            <div className="container m-auto">
                 <DealOfWeek />
             </div>
           </div>
