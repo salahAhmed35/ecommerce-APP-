@@ -24,7 +24,7 @@ const DealOfWeek = () => {
     },[second,minute,hour])
   return (
     <>
-      <div className="deal-of-week rounded shadow-2xl w-400 p-7 my-6">
+      <div className="deal-of-week rounded shadow-2xl w-400 p-7">
         <div className="title">
           <h3 className="mb-4 mt-2 font-semibold text-xl text-dark-gray">
             Deal of the week
