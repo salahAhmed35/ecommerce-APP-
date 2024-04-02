@@ -1,0 +1,26 @@
+.product-card{
+    position: relative;
+}
+.product-card::after{
+    content: '';
+    position: absolute;
+    right: -1px;
+    height: 80%;
+    width: 1px;
+    background-color: #8080802e;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.product-card::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 90%;
+    background-color: #8080802e;
+    bottom: -1px;
+}
+.product-card .cart{
+    transition: all .2s;
+}
