@@ -7,6 +7,10 @@ import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import RegisterForm from "./pages/register/register";
 import Admin from "./pages/admin/admin";
+import AdminHome from "./pages/admin/adminHome/adminHome";
+import AdmindminSetting from "./pages/admin/adminSetting/adminSetting";
+import Orders from "./pages/admin/orders/order";
+import Products from "./pages/admin/products/products";
 function App() {
   const [user , currUser] = useState('admin')
   const Layouts = () => {
@@ -20,7 +24,15 @@ function App() {
   };
   if(user == 'admin' ){
     return (
-      <Admin/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/admin" element = {<Admin/>}>
+            <Route path="admin/orders" element = {<Orders/>}/>
+            <Route path="admin/products" element = {<Products/>}/>
+            <Route path="admin/settings" element = {<AdmindminSetting/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     )
   }else{
     return (
@@ -33,7 +45,6 @@ function App() {
             <Route>
               <Route path="login" element={<Login />} />
               <Route path="register" element={<RegisterForm />} />
-  
             </Route>
           </Routes>
         </div>

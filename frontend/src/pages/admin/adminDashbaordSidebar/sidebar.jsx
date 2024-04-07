@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
 import { FaBarsProgress } from "react-icons/fa6";
 import { FaShop } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 const AdminSidebar = () => {
     const links = [
         {
             name: "Home",
             icon: <FaHome />,
-            path: "/admin"
+            path: "/"
         },
         {
             name: "Orders",
@@ -35,10 +36,10 @@ const AdminSidebar = () => {
             <ul className='mt-6 pl-4'>
             {links.map((link,index) => (
                 <li key={index} className='text-white pl-2 py-3 font-semibold text-xl w-full rounded-l-full'>
-                    <a href="#" className='flex items-center '>
-                        <span className='mr-2'>{link.name}</span>
+                    <NavLink to={link.path} className='flex items-center ' activeClassName = "active">
                         {link.icon }
-                    </a>
+                        <span className='ml-2'>{link.name}</span>
+                    </NavLink>
                 </li>
             ))}
             </ul>
