@@ -11,6 +11,7 @@ import AdminHome from "./pages/admin/adminHome/adminHome";
 import AdmindminSetting from "./pages/admin/adminSetting/adminSetting";
 import Orders from "./pages/admin/orders/order";
 import Products from "./pages/admin/products/products";
+import AddNewProduct from "./pages/admin/products/addnew/addnew";
 function App() {
   const [user , currUser] = useState('admin')
   const Layouts = () => {
@@ -29,7 +30,8 @@ function App() {
           <Route path="/admin" element = {<Admin/>}>
             <Route path="/admin/home" element={<AdminHome/>}/>
             <Route path="/admin/orders" element = {<Orders/>}/>
-            <Route path="/admin/products" element = {<Products/>}/>
+            <Route path="/admin/products" element = {<Products/>} />
+            <Route path="/admin/add-new" element = {<AddNewProduct/>}/>
             <Route path="/admin/settings" element = {<AdmindminSetting/>}/>
           </Route>
         </Routes>

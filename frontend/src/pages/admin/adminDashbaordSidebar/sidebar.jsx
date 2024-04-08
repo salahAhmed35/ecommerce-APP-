@@ -33,7 +33,9 @@ const AdminSidebar = () => {
     useEffect(() => {
         const currentPath = location.pathname
         const activeLinkObject = links.find(link => link.path === currentPath);
-        setActiveLink(activeLinkObject.name)
+        if(activeLinkObject){
+            setActiveLink(activeLinkObject.name)
+        }
     }, [location.pathname])
     const handleActiveLink = (link) => {
         setActiveLink(link);
@@ -41,12 +43,12 @@ const AdminSidebar = () => {
     return(
         <div className="sidebar bg-blue w-240 h-full py-3">
             <div className="logo  my-3 px-3">
-                <h2 className='text-xl font-bold text-white'>Admin Dashboard</h2>
+                <h2 className='text-xl font-bold text-white'>Ecommrece Admin</h2>
             </div>
             <ul className='mt-6 pl-4'>
             {links.map((link,index) => (
                 <li key={index} className='text-white font-semibold text-xl w-full' onClick={() => handleActiveLink(link.name)}>
-                    <NavLink to={link.path}  className={`flex items-center pl-2 py-3 rounded-l ${activeLink=== link.name ? "active" : ""}`} >
+                    <NavLink to={link.path}  className={`flex items-center pl-2 py-3 rounded-l-lg ${activeLink=== link.name ? "active" : ""}`} >
                         {link.icon }
                         <span className='ml-2'>{link.name}</span>
                     </NavLink>
