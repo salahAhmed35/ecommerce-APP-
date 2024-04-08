@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink , useLocation } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
 import { FaBarsProgress } from "react-icons/fa6";
 import { FaShop } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
-import { NavLink } from 'react-router-dom';
+import "./sidebar.css"
 const AdminSidebar = () => {
+    const [activeLink, setActiveLink] = useState('Home');
+    const location = useLocation()
     const links = [
         {
             name: "Home",
             icon: <FaHome />,
-            path: "/"
+            path: "/admin/home"
         },
         {
             name: "Orders",
@@ -28,6 +30,14 @@ const AdminSidebar = () => {
             path: "/admin/settings"
         },
     ]
+    useEffect(() => {
+        const currentPath = location.pathname
+        const activeLinkObject = links.find(link => link.path === currentPath);
+        setActiveLink(activeLinkObject.name)
+    }, [location.pathname])
+    const handleActiveLink = (link) => {
+        setActiveLink(link);
+    }
     return(
         <div className="sidebar bg-blue w-240 h-full py-3">
             <div className="logo  my-3 px-3">
@@ -35,8 +45,8 @@ const AdminSidebar = () => {
             </div>
             <ul className='mt-6 pl-4'>
             {links.map((link,index) => (
-                <li key={index} className='text-white pl-2 py-3 font-semibold text-xl w-full rounded-l-full'>
-                    <NavLink to={link.path} className='flex items-center ' activeClassName = "active">
+                <li key={index} className='text-white font-semibold text-xl w-full' onClick={() => handleActiveLink(link.name)}>
+                    <NavLink to={link.path}  className={`flex items-center pl-2 py-3 rounded-l ${activeLink=== link.name ? "active" : ""}`} >
                         {link.icon }
                         <span className='ml-2'>{link.name}</span>
                     </NavLink>

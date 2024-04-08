@@ -27,9 +27,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/admin" element = {<Admin/>}>
-            <Route path="admin/orders" element = {<Orders/>}/>
-            <Route path="admin/products" element = {<Products/>}/>
-            <Route path="admin/settings" element = {<AdmindminSetting/>}/>
+            <Route path="/admin/home" element={<AdminHome/>}/>
+            <Route path="/admin/orders" element = {<Orders/>}/>
+            <Route path="/admin/products" element = {<Products/>}/>
+            <Route path="/admin/settings" element = {<AdmindminSetting/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
