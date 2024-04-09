@@ -39,3 +39,4 @@ const Review = mongoose.model('Reveiw' , reviewSchema)
 
 
 module.exports = User
+module.exports = Product
