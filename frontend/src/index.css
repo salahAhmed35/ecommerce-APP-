@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer components{
-    input {
-        @apply border border-gray rounded-md px-4 py-2 mx-2 my-2 w-full;
+    input,textarea  {
+        @apply border border-gray rounded-md px-4 py-2  my-2 w-full text-lg;
     }
-    input:focus{
+    input:focus ,textarea:focus{
         @apply outline-blue border-transparent;
     }
 }
