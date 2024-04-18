@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 require('./models/dbModels');
 app.use(userRoute);
 app.use(addProductRoute);
+app.use("/uploads", express.static("uploads"));
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
