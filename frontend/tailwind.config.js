@@ -28,6 +28,7 @@ module.exports = {
       },
       backgroundColor: {
         'light-bg': '#ffffff',
+        "light-gray" :"#f3f4f6" ,
         'dark-bg': '#1f2937',
         'white-blue' : "#f0f9ff"
       },
@@ -38,7 +39,11 @@ module.exports = {
       boxShadow: {
         'light-shadow': '-3px 3px 8px -3px #cbd5e1',
         'dark-shadow': '-3px 3px 8px -3px rgba(66, 81, 98, 0.5)',
+        'logo-shadow': '5px 5px 0px #3880f752'
       },
+      transformOrigin :{
+        "logo-transform" : "rotate(10deg)"
+      }
     },
   },
   plugins: [],

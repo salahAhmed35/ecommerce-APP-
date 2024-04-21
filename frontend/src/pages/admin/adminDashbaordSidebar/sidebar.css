@@ -1,7 +1,7 @@
 ul{
     li{
         .active{
-            background-color: white;
+            background-color: #3b83f656;
             color: #3b82f6;
         }
     }
