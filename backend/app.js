@@ -6,11 +6,13 @@ const mongoURI = 'mongodb://localhost:27017/users';
 const app = express();
 const userRoute = require('./routes/userRoute');
 const addProductRoute = require('./routes/addNewProductRoute')
+const getProduct = require('./routes/adminGetProduct')
 app.use(cors());
 app.use(bodyParser.json());
 require('./models/dbModels');
 app.use(userRoute);
 app.use(addProductRoute);
+app.use(getProduct)
 app.use("/uploads", express.static("uploads"));
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
