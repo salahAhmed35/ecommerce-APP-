@@ -1,5 +1,6 @@
 import React from 'react';
 import SalesChart from './salesChart/chart';
+import OrdersTable from './ordersTable/orders';
 import { FaDollarSign } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaShoppingBag } from "react-icons/fa";
@@ -39,6 +40,9 @@ const AdminHome = () => {
             </div>
             <div className='container mx-auto mt-3'>
                 <SalesChart/>
+            </div>
+            <div className='container mx-auto mt-3'>
+                <OrdersTable/>
             </div>
             
         </div>

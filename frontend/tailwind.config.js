@@ -13,7 +13,6 @@ module.exports = {
       },
       colors : {
         "blue" : "#3b82f6",
-        "gray" : "#9ca3af",
         "white" : "#FFFFFF"
       },
       height: {
