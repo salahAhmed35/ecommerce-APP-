@@ -4,7 +4,7 @@
 
 @layer components{
     input,textarea,select  {
-        @apply w-full px-4 py-2 my-2 text-lg border border-gray-500 rounded-md;
+        @apply w-full px-4 py-2 my-2 text-lg border border-gray-300 rounded-md;
     }
     input:focus ,textarea:focus ,select:focus{
         @apply border-transparent outline-blue;

@@ -12,7 +12,7 @@ const OrdersTable = () => {
                                 Product name
                             </th>
                             <th scope="col" class="px-6 py-3 text-base font-semibold">
-                                Color
+                                Order status
                             </th>
                             <th scope="col" class="px-6 py-3 text-base font-semibold">
                                 Category
@@ -73,3 +73,7 @@ const OrdersTable = () => {
     );
 };
 export default OrdersTable;
+
+
+/*
+*/

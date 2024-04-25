@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaArrowUpFromBracket } from "react-icons/fa6";
+import { FaCloudArrowUp } from "react-icons/fa6";
 import Loadingspinner from "../../../../components/loadingspinner/loadingspinner";
 import Button from "../../../../components/Button/Button";
 const AddNewProduct = () => {
@@ -10,7 +10,8 @@ const AddNewProduct = () => {
     { name: "Tablets" },
     { name: "Smartwatch" },
     { name: "Hardware" },
-    { name: "Headphones" }
+    { name: "Headphones" },
+    { name: "Screens" }
   ];
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
@@ -50,6 +51,7 @@ const AddNewProduct = () => {
   const handleImage = (e) => {
     const file = e.target.files[0];
     setProductImage(file);
+    console.log(URL.createObjectURL(file));
     const reader = new FileReader();
     reader.onloadend = () => {
       setImagePreview(reader.result);
@@ -58,7 +60,7 @@ const AddNewProduct = () => {
   };
 
   return (
-    <div className="px-4 py-3">
+    <div className="container px-4 py-3 mx-auto bg-white">
       <h1 className="mb-4 text-2xl font-semibold text-blue-700">
         Add New Product
       </h1>
@@ -78,6 +80,42 @@ const AddNewProduct = () => {
             onChange={(e) => setProductName(e.target.value)}
             required
           />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="productDescription"
+            className="block font-semibold text-[#1e3a8a]"
+          >
+            Description
+          </label>
+          <textarea
+            id="productDescription"
+            placeholder="Description"
+            value={productDescription}
+            onChange={(e) => setProductDescription(e.target.value)}
+            required
+          ></textarea>
+        </div>
+        <div className="flex">
+        <div
+            className="flex flex-col items-center justify-center p-6 mb-2 cursor-pointer w-40 h-40 rounded-xl bg-[#e2e8f0] text-dark-gray outline-blue upload-image "
+            onClick={() => document.querySelector(".upload-input").click()}
+          >
+            <FaCloudArrowUp className="mx-2 text-4xl " />
+            <span className="mt-3 text-xl">Upload</span>
+            <input
+              type="file"
+              className="upload-input"
+              hidden
+              onChange={handleImage}
+              required
+            />
+          </div>
+          <div className="image-container">
+          {imagePreview && (
+            <img src={imagePreview} alt="Product Preview" className="w-40 h-40 p-2 ml-3 border border-gray-300 rounded-xl" />
+          )}
+          </div>
         </div>
         <div className="mb-4">
           <label
@@ -125,40 +163,6 @@ const AddNewProduct = () => {
             </select>
           </div>
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="productDescription"
-            className="block font-semibold text-[#1e3a8a]"
-          >
-            Description
-          </label>
-          <textarea
-            id="productDescription"
-            placeholder="Description"
-            value={productDescription}
-            onChange={(e) => setProductDescription(e.target.value)}
-            required
-          ></textarea>
-        </div>
-          <div
-            className="flex flex-row items-center justify-center p-6 mb-2 cursor-pointer w-fit rounded-xl bg-[#e2e8f0] text-dark-gray outline-blue upload-image"
-            onClick={() => document.querySelector(".upload-input").click()}
-          >
-            <FaArrowUpFromBracket className="mx-2 text-4xl " />
-            <span className="text-xl">upload image</span>
-            <input
-              type="file"
-              className="upload-input"
-              hidden
-              onChange={handleImage}
-              required
-            />
-          </div>
-          <div className="image-container">
-          {imagePreview && (
-            <img src={imagePreview} alt="Product Preview" className="mb-4 ml-3 rounded w-52 h-52" />
-          )}
-          </div>
           <div className="flex justify-end">
           <button className="flex justify-center px-4 py-2 my-3 font-semibold text-white rounded w-180 bg-blue" >
            {loading ? <Loadingspinner/> : "Add Product "} 

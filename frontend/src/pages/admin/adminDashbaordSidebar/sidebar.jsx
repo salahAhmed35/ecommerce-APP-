@@ -7,7 +7,7 @@ import { FaGear } from "react-icons/fa6";
 import { CiLock } from "react-icons/ci";
 import "./sidebar.css"
 const AdminSidebar = () => {
-    const [activeLink, setActiveLink] = useState('Home');
+    const [activeLink, setActiveLink] = useState('dashboard');
     const location = useLocation()
     const links = [
         {

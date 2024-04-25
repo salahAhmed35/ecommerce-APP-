@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       width: {
         "240": "240px",
+        "200": "200px",
         "180" : "180px",
-        "50vh" : "50vh",
         "300" : "300px",
         "400" : "400px",
         "95%" : "95%"
@@ -17,7 +17,8 @@ module.exports = {
       },
       height: {
         "50vh" : "50vh",
-        "100vh" : "100vh"
+        "100vh" : "100vh",
+        "180" : "180px"
       },
       textColor: {
         'light-blue': '#3b82f6',
